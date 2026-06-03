@@ -259,7 +259,13 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* RESPONSIVE */
+    .project-card code {
+      font-size: 0.78rem; background: var(--line); padding: 0.1rem 0.4rem;
+      border-radius: 2px; font-family: monospace; color: var(--ink);
+    }
+    @media (max-width: 768px) {
+      .project-card[style*="grid-column"] { grid-column: 1 !important; }
+    }
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; padding-top: 100px; }
       .hero-visual { display: none; }
@@ -360,8 +366,13 @@
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">💻</div>
-        <div class="skill-category">Languages</div>
+        <div class="skill-category">Languages &amp; Scripting</div>
         <div class="skill-list">Python · SQL (PostgreSQL) · PySpark · Shell Scripting</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-category">Operations &amp; Tooling</div>
+        <div class="skill-list">Server Maintenance · Build Upgrades · Flow &amp; Logic Building · Production Monitoring · Power BI · Grafana · Excel · Tenant Onboarding</div>
       </div>
     </div>
   </section>
@@ -376,37 +387,83 @@
 
     <div class="exp-item reveal">
       <div class="exp-meta">
-        <div class="exp-period">Jul 2024 — Present</div>
-        <div class="exp-company">Mobileum Technologies Pvt. Ltd.</div>
+        <div class="exp-period">Jul 2024 — Feb 2025</div>
+        <div class="exp-company">Mobileum Technologies</div>
         <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
       </div>
       <div>
-        <div class="exp-role">Associate Software Engineer</div>
-
-        <div class="exp-tag">AI Model Development</div>
+        <div class="exp-role">Fraud Analyst</div>
+        <div class="exp-tag">Fraud Detection &amp; Client Engagement</div>
         <ul class="exp-bullets">
-          <li>Designed, developed, and deployed ML models for complex fraud detection using XGBoost, LightGBM, TensorFlow, and scikit-learn.</li>
-          <li>Improved F1-score by 15% through systematic feature engineering and hyperparameter tuning.</li>
-          <li>Implemented data drift monitoring with automated retraining triggers — reduced manual effort by 95%.</li>
+          <li>Monitored and investigated telecom fraud patterns across multiple enterprise customer accounts, identifying anomalies and escalating high-risk cases.</li>
+          <li>Engaged directly with clients to communicate fraud findings, present reports, and recommend mitigation strategies.</li>
+          <li>Leveraged SQL (PostgreSQL) and Excel extensively for querying, data analysis, and reporting.</li>
+          <li>Built deep domain knowledge of telecom fraud signals, data patterns, and client operations.</li>
         </ul>
-
-        <div class="exp-tag" style="margin-top:1.2rem;">GenAI &amp; NLP</div>
-        <ul class="exp-bullets">
-          <li>Built and deployed a RAG-based LLM application using LangChain and LlamaIndex on Azure.</li>
-          <li>Fine-tuned Transformer models using PEFT/LoRA via HuggingFace for domain-specific NLP tasks.</li>
-          <li>Communicated AI findings via Power BI and Grafana dashboards.</li>
-        </ul>
-
-        <div class="exp-tag" style="margin-top:1.2rem;">Data Engineering — RAID-TCG</div>
-        <ul class="exp-bullets">
-          <li>Deployed and maintained ETL pipelines across 14+ enterprise clients at 99.9% uptime.</li>
-          <li>Built real-time Kafka pipelines and Grafana dashboards reducing mean time-to-detect issues by 30%.</li>
-          <li>Resolved 100+ production issues with thorough documentation throughout.</li>
-        </ul>
-
-        <div class="exp-highlight">🎯 Key impact: 95% reduction in manual effort · 99.9% pipeline uptime · 14+ enterprise clients</div>
+        <div class="exp-highlight">💡 Recognised for technical aptitude and transferred to the core engineering &amp; operations team.</div>
       </div>
     </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Feb 2025 — May 2025</div>
+        <div class="exp-company">Mobileum Technologies</div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
+      </div>
+      <div>
+        <div class="exp-role">Operations Engineer — Terminator</div>
+        <div class="exp-tag">Product Operations · 18 Enterprise Clients</div>
+        <ul class="exp-bullets">
+          <li>Independently owned the Terminator product across 18 enterprise clients — handling all operational aspects end-to-end.</li>
+          <li>Managed client issue resolution, system upgrades, server maintenance, and production monitoring single-handedly.</li>
+          <li>Built working knowledge of flow logic, shell scripting, and server infrastructure across production environments.</li>
+          <li>Executed zero-disruption upgrade cycles for all 18 clients without external support.</li>
+        </ul>
+        <div class="exp-highlight">🎯 Sole owner of Terminator for 18 enterprise clients — upgrades, issues, and monitoring all handled independently.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">May 2025 — Aug 2025</div>
+        <div class="exp-company">Mobileum Technologies</div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
+      </div>
+      <div>
+        <div class="exp-role">Operations Engineer — RAID Terminator</div>
+        <div class="exp-tag">Dashboards · Monitoring · Flow Analysis</div>
+        <ul class="exp-bullets">
+          <li>Extended scope to RAID Terminator — built customer-facing dashboards and real-time monitoring of RAID flows.</li>
+          <li>Designed Grafana dashboards to visualise flow health, anomalies, and operational KPIs for client accounts.</li>
+          <li>Used PostgreSQL and Shell scripting extensively for monitoring automation and ad-hoc data investigation.</li>
+          <li>Developed deep understanding of RAID system architecture and data flow logic across the product.</li>
+        </ul>
+        <div class="exp-highlight">📊 Dashboard quality and initiative on RAID led to being handed ownership of the long-stalled RAID-TCG project.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2025 — Present</div>
+        <div class="exp-company">Mobileum Technologies</div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
+      </div>
+      <div>
+        <div class="exp-role">Lead Engineer — RAID-TCG &amp; Smart Testing</div>
+        <div class="exp-tag">Project Rescue · ML Automation · End-to-End Ownership</div>
+        <ul class="exp-bullets">
+          <li>Took sole ownership of RAID-TCG — a critical product stalled for 3 years with no operational support — and drove it to production-ready in under 8 months.</li>
+          <li>Collaborated directly with the dev team on logic fixing, logic building, query development, tenant onboarding, and deep issue resolution across the entire system.</li>
+          <li>Built and maintained complex PostgreSQL queries, Shell scripts, and Python automation for production operations and monitoring.</li>
+          <li>Managed server infrastructure, build upgrades, and production deployments with zero unplanned downtime.</li>
+          <li>Designed and built Smart Testing — an ML automation layer within RAID-TCG using XGBoost, LightGBM, and scikit-learn for automated fraud signal validation, cutting manual testing effort by 95%.</li>
+          <li>Improved model F1-score by 15% through feature engineering, hyperparameter tuning, and data drift monitoring with automated retraining triggers.</li>
+          <li>Built Power BI and Grafana dashboards to communicate system health and ML model performance to stakeholders.</li>
+        </ul>
+        <div class="exp-highlight">🚀 RAID-TCG going fully live imminently — rescued from 3 years of stagnation to production-ready in under 8 months.</div>
+      </div>
+    </div>
+
   </section>
 
   <!-- PROJECTS -->
@@ -417,6 +474,51 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
+
+      <div class="project-card reveal" style="grid-column: 1 / -1;">
+        <div class="project-year">2025 · Mobileum Technologies — RAID-TCG Product</div>
+        <div class="project-name">Smart Testing — Automated Fraud Test Shoot Engine</div>
+        <p class="project-desc">
+          Designed and built a fully automated daily shoot generation system for telecom fraud testing — zero manual intervention required. The system combines an ML classification layer with a business logic engine to produce a ready-to-load shoot file for the RAID platform.<br/><br/>
+          <strong>ML Layer:</strong> Classifies every telecom route into scenarios based on bypass type, validity tier, and pickup pattern. Assigns priority scores and quota weights using 2-month and overall historical lookback periods. Routes are categorised into 6 validity tiers (Good Validity, Bad Validity, Good Historic Validity, Bad Historic Validity, Valid to Others, Limited Historic Data) — each driving a different test frequency and allocation strategy.<br/><br/>
+          <strong>Allocation Engine:</strong> Distributes daily test quotas across 5 scenario tiers — top affected high-validity routes can receive up to 50–100% of quota; unused routes get minimal monitoring slots. Per-route caps (2–5% for high deliverable &gt;30k, up to 10% for lower volume) prevent over-testing any single route. Max 6 tests per route job, with AdHoc and Recurrent priority rules enforced.<br/><br/>
+          <strong>Output:</strong> Fully formatted <code>Schedule_Request_TenantID_*.csv</code> shoot file with priorities, call durations, start/end dates, ICPI flags, ForceConnect rules, and quota tracking — ready to load directly into RAID with no human touch.<br/><br/>
+          <strong>Impact:</strong> 95% reduction in manual effort · F1-score improved by 15% · Data drift monitoring with auto-retraining triggers in production.
+        </p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">LightGBM</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Shell Scripting</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Power BI</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="grid-column: 1 / -1;">
+        <div class="project-year">2025 · Mobileum Technologies — Project Rescue</div>
+        <div class="project-name">RAID-TCG — End-to-End Operational Turnaround</div>
+        <p class="project-desc">
+          Took sole ownership of a critical enterprise product that had been stalled for 3 years with no operational support. Drove the project from near-abandoned to production-ready in under 8 months alongside the development team.<br/><br/>
+          Covered the full operational spectrum: logic analysis and fixing, new logic building, complex PostgreSQL query development, tenant onboarding, build upgrades, server maintenance, production monitoring, and deep issue resolution. Resolved 100+ production issues with full documentation at every step.<br/><br/>
+          Built customer-facing Grafana dashboards for real-time RAID flow monitoring across 14+ enterprise clients, reducing mean time-to-detect issues by 30%. Maintained ETL pipelines (Python, PySpark, PostgreSQL) at 99.9% uptime throughout.<br/><br/>
+          <strong>RAID-TCG goes fully live in production in 3 days.</strong>
+        </p>
+        <div class="project-stack">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">PySpark</span>
+          <span class="tag">Shell Scripting</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">ETL Pipelines</span>
+          <span class="tag">Apache Kafka</span>
+          <span class="tag">Server Ops</span>
+        </div>
+      </div>
+
       <div class="project-card reveal">
         <div class="project-year">2024</div>
         <div class="project-name">RAG-Based LLM Chatbot</div>
@@ -430,6 +532,7 @@
           <span class="tag">Python</span>
         </div>
       </div>
+
       <div class="project-card reveal">
         <div class="project-year">2023 – 2024</div>
         <div class="project-name">Obscenity Blocker</div>
@@ -441,6 +544,7 @@
           <span class="tag">Python</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -501,7 +605,7 @@
   <section id="contact">
     <div class="contact-inner reveal">
       <h2 class="contact-heading">Let's work<br/><em>together.</em></h2>
-      <p class="contact-sub">Open to roles in <strong>Data Science</strong>, <strong>Data Engineering</strong>, and <strong>AI/ML Development</strong>.</p>
+      <p class="contact-sub">Open to roles in <strong>Data Science</strong>, <strong>Data Engineering</strong> &amp; <strong>AI/ML Development</strong>. Currently based in Bengaluru — open to remote &amp; hybrid.</p>
       <div class="contact-links">
         <a href="mailto:deepthi241202@gmail.com" class="contact-link">
           <span class="contact-link-icon">✉️</span>
