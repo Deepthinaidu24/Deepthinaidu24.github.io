@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Deepthi B — AI & ML Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>Deepthi B — AI Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #F7F5F2;
-      --ink: #1A1A1A;
-      --muted: #6B6560;
-      --accent: #C96A3A;
-      --line: #E0DDD9;
+      --bg: #EFF3F1;
+      --ink: #10211B;
+      --muted: #5B6B64;
+      --accent: #00A368;
+      --accent2: #FF5A36;
+      --line: #D2DCD6;
       --card: #FFFFFF;
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+      --serif: 'Space Grotesk', sans-serif;
+      --sans: 'Inter', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 1px 1px, rgba(16,33,27,0.07) 1px, transparent 0) 0 0/22px 22px,
+        var(--bg);
       color: var(--ink);
       font-family: var(--sans);
       font-weight: 300;
@@ -35,23 +39,27 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.25rem 5vw;
-      background: rgba(247,245,242,0.88);
+      background: rgba(239,243,241,0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
     .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.25rem;
+      font-family: var(--mono);
+      font-size: 1.05rem;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: 0.01em;
+      font-weight: 500;
     }
+    .nav-logo::before { content: '> '; color: var(--accent); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       text-decoration: none; color: var(--muted);
-      font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 0.78rem; letter-spacing: 0.04em; text-transform: lowercase;
       transition: color 0.2s;
     }
+    .nav-links a::before { content: '/'; color: var(--line); margin-right: 0.2rem; }
     .nav-links a:hover { color: var(--accent); }
 
     /* HERO */
@@ -63,29 +71,39 @@
       padding: 0 5vw;
       padding-top: 80px;
       gap: 4rem;
+      position: relative;
     }
-    .hero-text { animation: fadeUp 0.9s ease both; }
+    .hero-text { animation: fadeUp 0.9s ease both; position: relative; z-index: 1; }
     .hero-eyebrow {
-      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 0.78rem; letter-spacing: 0.04em;
       color: var(--accent); margin-bottom: 1.2rem; font-weight: 500;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); display: inline-block;
     }
     .hero-name {
       font-family: var(--serif);
-      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 600;
+      font-size: clamp(2.6rem, 5.4vw, 4.6rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
+      color: var(--ink);
     }
-    .hero-name em { font-style: italic; color: var(--accent); }
+    .hero-name em { font-style: normal; color: var(--accent); }
     .hero-bio {
-      font-size: 1.05rem; color: var(--muted); max-width: 440px;
+      font-size: 1.02rem; color: var(--muted); max-width: 460px;
       line-height: 1.8; margin-bottom: 2.5rem;
     }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       display: inline-block; text-decoration: none;
       padding: 0.75rem 1.8rem; border-radius: 2px;
-      font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 0.8rem; letter-spacing: 0.02em;
       font-weight: 500; transition: all 0.2s; cursor: pointer; border: none;
     }
     .btn-primary { background: var(--ink); color: #fff; }
@@ -97,8 +115,11 @@
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .hero-visual {
-      display: flex; justify-content: center; align-items: center;
-      animation: fadeUp 1.1s 0.2s ease both;
+      display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1.5rem;
+    }
+    .pulse-trace { width: 100%; max-width: 360px; }
+    .pulse-trace path {
+      fill: none; stroke: var(--accent); stroke-width: 2;
     }
     .hero-card {
       background: var(--card);
@@ -106,35 +127,45 @@
       border-radius: 4px;
       padding: 2.5rem;
       width: 100%; max-width: 360px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 40px rgba(16,33,27,0.05);
+      position: relative;
+    }
+    .hero-card::before {
+      content: '// status: actively building';
+      position: absolute; top: -1.6rem; left: 0;
+      font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
     }
     .hero-card-label {
-      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 0.7rem; letter-spacing: 0.04em;
       color: var(--muted); margin-bottom: 1.5rem;
     }
     .stat-row { display: flex; gap: 2rem; margin-bottom: 1.8rem; }
     .stat-val {
       font-family: var(--serif);
-      font-size: 2.2rem; color: var(--ink); line-height: 1;
+      font-weight: 600;
+      font-size: 2.1rem; color: var(--ink); line-height: 1;
     }
-    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .stat-label { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.02em; }
     .cert-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .chip {
       padding: 0.3rem 0.75rem; border-radius: 2px;
-      font-size: 0.72rem; letter-spacing: 0.04em;
+      font-family: var(--mono);
+      font-size: 0.68rem; letter-spacing: 0.01em;
       background: var(--bg); border: 1px solid var(--line); color: var(--muted);
     }
-    .chip.accent { background: #FDF0EA; border-color: #F2C9B2; color: var(--accent); }
+    .chip.accent { background: #E7F6EF; border-color: #A7E0C5; color: var(--accent); }
 
     /* SECTIONS */
     section { padding: 6rem 5vw; }
     section:nth-child(even) { background: var(--card); }
     .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
-    .section-num { font-size: 0.72rem; color: var(--accent); letter-spacing: 0.14em; font-weight: 500; }
+    .section-num { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.01em; font-weight: 500; }
     .section-title {
       font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      letter-spacing: -0.02em;
+      font-weight: 600;
+      font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+      letter-spacing: -0.01em;
     }
     .section-line { flex: 1; height: 1px; background: var(--line); margin-left: 1rem; }
 
@@ -143,28 +174,32 @@
     .skill-card {
       background: var(--bg);
       border: 1px solid var(--line);
-      border-radius: 4px; padding: 1.8rem;
-      transition: box-shadow 0.2s, transform 0.2s;
+      border-left: 2px solid var(--line);
+      border-radius: 2px; padding: 1.8rem;
+      transition: box-shadow 0.2s, transform 0.2s, border-left-color 0.2s;
     }
-    .skill-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
-    .skill-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+    .skill-card:hover { box-shadow: 0 6px 24px rgba(16,33,27,0.06); transform: translateY(-2px); border-left-color: var(--accent); }
+    .skill-icon { display: none; }
     .skill-category {
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--accent); font-weight: 500; margin-bottom: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.72rem; text-transform: lowercase; letter-spacing: 0.01em;
+      color: var(--accent); font-weight: 500; margin-bottom: 0.7rem;
     }
+    .skill-category::before { content: '// '; color: var(--muted); }
     .skill-list { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
 
     /* EXPERIENCE */
     .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-top: 1px solid var(--line); }
     .exp-item:last-child { border-bottom: 1px solid var(--line); }
     .exp-meta { }
-    .exp-period { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 0.5rem; }
+    .exp-period { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); letter-spacing: 0.01em; margin-bottom: 0.5rem; }
     .exp-company { font-weight: 500; font-size: 0.9rem; }
-    .exp-role { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.8rem; }
+    .exp-role { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; margin-bottom: 0.8rem; }
     .exp-tag {
-      display: inline-block; font-size: 0.7rem; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 0.2rem 0.6rem;
-      background: #FDF0EA; color: var(--accent);
+      display: inline-block; font-family: var(--mono);
+      font-size: 0.68rem; letter-spacing: 0.01em;
+      text-transform: lowercase; padding: 0.2rem 0.6rem;
+      background: #E7F6EF; color: var(--accent);
       border-radius: 2px; margin-bottom: 1rem;
     }
     .exp-bullets { list-style: none; }
@@ -177,7 +212,7 @@
     }
     .exp-highlight {
       font-size: 0.82rem; color: var(--ink);
-      background: #f0f0ee; border-left: 2px solid var(--accent);
+      background: var(--bg); border-left: 2px solid var(--accent);
       padding: 0.5rem 0.9rem; margin-top: 0.8rem; border-radius: 0 2px 2px 0;
     }
 
@@ -190,15 +225,16 @@
       transition: box-shadow 0.2s, transform 0.2s;
       display: flex; flex-direction: column;
     }
-    .project-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
-    .project-year { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .project-name { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.8rem; }
+    .project-card:hover { box-shadow: 0 8px 32px rgba(16,33,27,0.07); transform: translateY(-3px); }
+    .project-year { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.01em; text-transform: lowercase; margin-bottom: 0.8rem; }
+    .project-name { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; margin-bottom: 0.8rem; }
     .project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 1.2rem; }
     .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag {
-      font-size: 0.7rem; padding: 0.2rem 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem; padding: 0.2rem 0.6rem;
       background: var(--card); border: 1px solid var(--line);
-      border-radius: 2px; color: var(--muted); letter-spacing: 0.04em;
+      border-radius: 2px; color: var(--muted); letter-spacing: 0.01em;
     }
 
     /* CERTIFICATIONS */
@@ -216,39 +252,41 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; flex-shrink: 0;
     }
-    .cert-badge.gcp { background: #E8F4EA; }
+    .cert-badge.gcp { background: #E7F6EF; }
     .cert-badge.azure { background: #E8EEF8; }
     .cert-badge.aws { background: #FDF3E7; }
     .cert-name { font-size: 0.88rem; font-weight: 500; line-height: 1.4; }
-    .cert-issuer { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+    .cert-issuer { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
 
     /* CONTACT */
     .contact-inner { max-width: 640px; }
     .contact-heading {
       font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.1; margin-bottom: 1.5rem;
+      font-weight: 600;
+      font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+      line-height: 1.15; margin-bottom: 1.5rem;
     }
-    .contact-heading em { font-style: italic; color: var(--accent); }
+    .contact-heading em { font-style: normal; color: var(--accent); }
     .contact-sub { font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 400px; }
     .contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
     .contact-link {
       display: flex; align-items: center; gap: 1rem;
       text-decoration: none; color: var(--ink);
       padding: 1rem 1.2rem;
-      border: 1px solid var(--line); border-radius: 4px;
+      border: 1px solid var(--line); border-radius: 2px;
       font-size: 0.9rem; transition: all 0.2s; background: var(--card);
     }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
     .contact-link-icon { font-size: 1.1rem; width: 24px; text-align: center; }
-    .contact-link-label { font-size: 0.75rem; color: var(--muted); display: block; margin-top: 0.1rem; }
+    .contact-link-label { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); display: block; margin-top: 0.1rem; }
 
     /* FOOTER */
     footer {
       padding: 2rem 5vw;
       border-top: 1px solid var(--line);
       display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.78rem; color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.74rem; color: var(--muted);
     }
 
     /* ANIMATIONS */
@@ -292,10 +330,10 @@
   <!-- HERO -->
   <section class="hero" id="about">
     <div class="hero-text">
-      <p class="hero-eyebrow">AI &amp; Machine Learning Engineer</p>
+      <p class="hero-eyebrow">AI Engineer</p>
       <h1 class="hero-name">Hello, I'm<br/><em>Deepthi B.</em></h1>
       <p class="hero-bio">
-        Associate Software Engineer with 2 years of experience building and deploying AI/ML solutions — from fraud detection models to RAG-based LLM applications. Based in Bengaluru, India.
+        AI Engineer with 2 years of hands-on experience designing and shipping production AI systems — from a CNN-based content classifier to a RAG-powered LLM chatbot, to an XGBoost/LightGBM fraud-classification engine running live at enterprise scale. Comfortable across the full ML lifecycle: data pipelines, model training &amp; fine-tuning, deployment, and monitoring. Based in Bengaluru, India.
       </p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
@@ -303,6 +341,9 @@
       </div>
     </div>
     <div class="hero-visual">
+      <svg class="pulse-trace" viewBox="0 0 360 70" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,35 L60,35 L75,12 L92,58 L108,35 L130,35 L142,20 L154,50 L166,35 L360,35"/>
+      </svg>
       <div class="hero-card">
         <p class="hero-card-label">At a Glance</p>
         <div class="stat-row">
@@ -311,12 +352,12 @@
             <div class="stat-label">Years Exp.</div>
           </div>
           <div>
-            <div class="stat-val">5</div>
-            <div class="stat-label">Certifications</div>
+            <div class="stat-val">3</div>
+            <div class="stat-label">ML Models in Prod.</div>
           </div>
           <div>
-            <div class="stat-val">14+</div>
-            <div class="stat-label">Enterprise Clients</div>
+            <div class="stat-val">5</div>
+            <div class="stat-label">Certifications</div>
           </div>
         </div>
         <div class="cert-chips">
@@ -334,34 +375,34 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-header reveal">
-      <span class="section-num">01</span>
+      <span class="section-num">[ stack ]</span>
       <h2 class="section-title">Technical Skills</h2>
       <div class="section-line"></div>
     </div>
     <div class="skills-grid">
-      <div class="skill-card reveal">
+      <div class="skill-card reveal" style="grid-column: span 2; border-color: #F2C9B2; background: #FDF8F5;">
         <div class="skill-icon">🤖</div>
         <div class="skill-category">AI &amp; GenAI</div>
         <div class="skill-list">LangChain · LlamaIndex · RAG Pipelines · Prompt Engineering · LLM Fine-tuning (PEFT/LoRA) · HuggingFace · NLP · OpenAI/Gemini APIs</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">🧠</div>
-        <div class="skill-category">ML Frameworks</div>
-        <div class="skill-list">TensorFlow · Keras · scikit-learn · PyTorch · XGBoost · LightGBM · Neural Networks · CNNs</div>
+        <div class="skill-category">ML Frameworks &amp; Modeling</div>
+        <div class="skill-list">TensorFlow · Keras · scikit-learn · PyTorch · XGBoost · LightGBM · Neural Networks · CNNs · Model Fine-Tuning · Drift Monitoring &amp; Retraining</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">📊</div>
-        <div class="skill-category">Data Analysis</div>
+        <div class="skill-category">Data Science &amp; Analysis</div>
         <div class="skill-list">Pandas · NumPy · Matplotlib · Feature Engineering · Statistical Modelling · A/B Testing · Hypothesis Testing · Bayesian Methods</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">⚙️</div>
-        <div class="skill-category">Data Engineering</div>
+        <div class="skill-category">ML Data Engineering</div>
         <div class="skill-list">Apache Kafka · ETL Pipelines · PySpark · PostgreSQL · Real-Time Pipelines · Data Ingestion &amp; Cleansing</div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">☁️</div>
-        <div class="skill-category">Cloud &amp; Infra</div>
+        <div class="skill-category">Cloud &amp; MLOps</div>
         <div class="skill-list">Azure · GCP (Vertex AI, BigQuery) · AWS (S3, SageMaker) · Docker · Kubernetes · CI/CD · Git/GitHub</div>
       </div>
       <div class="skill-card reveal">
@@ -369,10 +410,10 @@
         <div class="skill-category">Languages &amp; Scripting</div>
         <div class="skill-list">Python · SQL (PostgreSQL) · PySpark · Shell Scripting</div>
       </div>
-      <div class="skill-card reveal">
+      <div class="skill-card reveal" style="opacity:0.92;">
         <div class="skill-icon">🛠️</div>
-        <div class="skill-category">Operations &amp; Tooling</div>
-        <div class="skill-list">Server Maintenance · Build Upgrades · Flow &amp; Logic Building · Production Monitoring · Power BI · Grafana · Excel · Tenant Onboarding</div>
+        <div class="skill-category">Production Support</div>
+        <div class="skill-list">Monitoring Dashboards (Power BI, Grafana) · Server &amp; Build Ops · Tenant Onboarding</div>
       </div>
     </div>
   </section>
@@ -380,14 +421,74 @@
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-header reveal">
-      <span class="section-num">02</span>
+      <span class="section-num">[ track-record ]</span>
       <h2 class="section-title">Experience</h2>
       <div class="section-line"></div>
     </div>
 
     <div class="exp-item reveal">
       <div class="exp-meta">
-        <div class="exp-period">Jul 2024 — Feb 2025</div>
+        <div class="exp-period">Jul 2024 — Present</div>
+        <div class="exp-company">Mobileum Technologies</div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
+      </div>
+      <div>
+        <div class="exp-role">AI Engineer — RAID-TCG &amp; Smart Testing</div>
+        <div class="exp-tag">ML Automation · Production AI · End-to-End Ownership</div>
+        <ul class="exp-bullets">
+          <li>Designed and built Smart Testing — an ML automation layer within RAID-TCG using XGBoost, LightGBM, and scikit-learn for automated fraud signal classification, cutting manual testing effort by 95%.</li>
+          <li>Improved model F1-score by 15% through feature engineering, hyperparameter tuning, and data drift monitoring with automated retraining triggers.</li>
+          <li>Built Power BI and Grafana dashboards to communicate ML model performance and system health to stakeholders.</li>
+          <li>Took sole ownership of RAID-TCG — a critical product stalled for 3 years with no operational support — and drove it to production-ready in under 8 months.</li>
+          <li>Collaborated directly with the dev team on logic fixing, logic building, query development, tenant onboarding, and deep issue resolution across the entire system.</li>
+          <li>Built and maintained complex PostgreSQL queries, Shell scripts, and Python automation for production operations and monitoring.</li>
+          <li>Managed server infrastructure, build upgrades, and production deployments with zero unplanned downtime.</li>
+        </ul>
+        <div class="exp-highlight">🚀 RAID-TCG going fully live imminently — rescued from 3 years of stagnation to production-ready in under 8 months.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jul 2024 — Present</div>
+        <div class="exp-company">Mobileum Technologies</div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
+      </div>
+      <div>
+        <div class="exp-role">AI Engineer — RAID Terminator</div>
+        <div class="exp-tag">Data Visualization · Anomaly Monitoring · Flow Analysis</div>
+        <ul class="exp-bullets">
+          <li>Extended scope to RAID Terminator — built customer-facing dashboards translating raw flow data into anomaly and KPI signals.</li>
+          <li>Designed Grafana dashboards to visualise flow health and operational metrics for client accounts.</li>
+          <li>Used PostgreSQL and Shell scripting extensively for monitoring automation and ad-hoc data investigation.</li>
+          <li>Developed deep understanding of RAID system architecture and data flow logic — the domain knowledge that later powered the ML classification layer in Smart Testing.</li>
+        </ul>
+        <div class="exp-highlight">📊 Dashboard quality and initiative on RAID led to being handed ownership of the long-stalled RAID-TCG project.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jul 2024 — Present</div>
+        <div class="exp-company">Mobileum Technologies</div>
+        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
+      </div>
+      <div>
+        <div class="exp-role">AI Engineer — Terminator</div>
+        <div class="exp-tag">Production Systems · Flow Logic · 18 Enterprise Clients</div>
+        <ul class="exp-bullets">
+          <li>Independently owned the Terminator product across 18 enterprise clients — handling all technical aspects end-to-end.</li>
+          <li>Built working knowledge of rule-based flow logic, shell scripting, and the data pipelines feeding production decisions — groundwork that directly fed into later ML model design.</li>
+          <li>Managed client issue resolution, system upgrades, and production monitoring single-handedly.</li>
+          <li>Executed zero-disruption upgrade cycles for all 18 clients without external support.</li>
+        </ul>
+        <div class="exp-highlight">🎯 Sole owner of Terminator for 18 enterprise clients — upgrades, issues, and monitoring all handled independently.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jul 2024 — Present</div>
         <div class="exp-company">Mobileum Technologies</div>
         <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
       </div>
@@ -404,72 +505,12 @@
       </div>
     </div>
 
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <div class="exp-period">Feb 2025 — May 2025</div>
-        <div class="exp-company">Mobileum Technologies</div>
-        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
-      </div>
-      <div>
-        <div class="exp-role">Operations Engineer — Terminator</div>
-        <div class="exp-tag">Product Operations · 18 Enterprise Clients</div>
-        <ul class="exp-bullets">
-          <li>Independently owned the Terminator product across 18 enterprise clients — handling all operational aspects end-to-end.</li>
-          <li>Managed client issue resolution, system upgrades, server maintenance, and production monitoring single-handedly.</li>
-          <li>Built working knowledge of flow logic, shell scripting, and server infrastructure across production environments.</li>
-          <li>Executed zero-disruption upgrade cycles for all 18 clients without external support.</li>
-        </ul>
-        <div class="exp-highlight">🎯 Sole owner of Terminator for 18 enterprise clients — upgrades, issues, and monitoring all handled independently.</div>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <div class="exp-period">May 2025 — Aug 2025</div>
-        <div class="exp-company">Mobileum Technologies</div>
-        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
-      </div>
-      <div>
-        <div class="exp-role">Operations Engineer — RAID Terminator</div>
-        <div class="exp-tag">Dashboards · Monitoring · Flow Analysis</div>
-        <ul class="exp-bullets">
-          <li>Extended scope to RAID Terminator — built customer-facing dashboards and real-time monitoring of RAID flows.</li>
-          <li>Designed Grafana dashboards to visualise flow health, anomalies, and operational KPIs for client accounts.</li>
-          <li>Used PostgreSQL and Shell scripting extensively for monitoring automation and ad-hoc data investigation.</li>
-          <li>Developed deep understanding of RAID system architecture and data flow logic across the product.</li>
-        </ul>
-        <div class="exp-highlight">📊 Dashboard quality and initiative on RAID led to being handed ownership of the long-stalled RAID-TCG project.</div>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <div class="exp-period">Aug 2025 — Present</div>
-        <div class="exp-company">Mobileum Technologies</div>
-        <div style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Bengaluru, India</div>
-      </div>
-      <div>
-        <div class="exp-role">Lead Engineer — RAID-TCG &amp; Smart Testing</div>
-        <div class="exp-tag">Project Rescue · ML Automation · End-to-End Ownership</div>
-        <ul class="exp-bullets">
-          <li>Took sole ownership of RAID-TCG — a critical product stalled for 3 years with no operational support — and drove it to production-ready in under 8 months.</li>
-          <li>Collaborated directly with the dev team on logic fixing, logic building, query development, tenant onboarding, and deep issue resolution across the entire system.</li>
-          <li>Built and maintained complex PostgreSQL queries, Shell scripts, and Python automation for production operations and monitoring.</li>
-          <li>Managed server infrastructure, build upgrades, and production deployments with zero unplanned downtime.</li>
-          <li>Designed and built Smart Testing — an ML automation layer within RAID-TCG using XGBoost, LightGBM, and scikit-learn for automated fraud signal validation, cutting manual testing effort by 95%.</li>
-          <li>Improved model F1-score by 15% through feature engineering, hyperparameter tuning, and data drift monitoring with automated retraining triggers.</li>
-          <li>Built Power BI and Grafana dashboards to communicate system health and ML model performance to stakeholders.</li>
-        </ul>
-        <div class="exp-highlight">🚀 RAID-TCG going fully live imminently — rescued from 3 years of stagnation to production-ready in under 8 months.</div>
-      </div>
-    </div>
-
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header reveal">
-      <span class="section-num">03</span>
+      <span class="section-num">[ shipped ]</span>
       <h2 class="section-title">Projects</h2>
       <div class="section-line"></div>
     </div>
@@ -477,13 +518,11 @@
 
       <div class="project-card reveal" style="grid-column: 1 / -1;">
         <div class="project-year">2025 · Mobileum Technologies — RAID-TCG Product</div>
-        <div class="project-name">Smart Testing — Automated Fraud Test Shoot Engine</div>
+        <div class="project-name">Smart Testing — ML Fraud Test Engine</div>
         <p class="project-desc">
-          Designed and built a fully automated daily shoot generation system for telecom fraud testing — zero manual intervention required. The system combines an ML classification layer with a business logic engine to produce a ready-to-load shoot file for the RAID platform.<br/><br/>
-          <strong>ML Layer:</strong> Classifies every telecom route into scenarios based on bypass type, validity tier, and pickup pattern. Assigns priority scores and quota weights using 2-month and overall historical lookback periods. Routes are categorised into 6 validity tiers (Good Validity, Bad Validity, Good Historic Validity, Bad Historic Validity, Valid to Others, Limited Historic Data) — each driving a different test frequency and allocation strategy.<br/><br/>
-          <strong>Allocation Engine:</strong> Distributes daily test quotas across 5 scenario tiers — top affected high-validity routes can receive up to 50–100% of quota; unused routes get minimal monitoring slots. Per-route caps (2–5% for high deliverable &gt;30k, up to 10% for lower volume) prevent over-testing any single route. Max 6 tests per route job, with AdHoc and Recurrent priority rules enforced.<br/><br/>
-          <strong>Output:</strong> Fully formatted <code>Schedule_Request_TenantID_*.csv</code> shoot file with priorities, call durations, start/end dates, ICPI flags, ForceConnect rules, and quota tracking — ready to load directly into RAID with no human touch.<br/><br/>
-          <strong>Impact:</strong> 95% reduction in manual effort · F1-score improved by 15% · Data drift monitoring with auto-retraining triggers in production.
+          Automated daily test-shoot generation for telecom fraud testing by combining an ML classification layer with a rules-based allocation engine — zero manual intervention required.<br/><br/>
+          <strong>ML Layer:</strong> Classifies telecom routes into 6 validity tiers using historical lookback windows, assigning priority scores and quota weights with XGBoost/LightGBM models.<br/><br/>
+          <strong>Impact:</strong> 95% reduction in manual effort · F1-score improved by 15% · data drift monitoring with auto-retraining triggers in production.
         </p>
         <div class="project-stack">
           <span class="tag">Python</span>
@@ -492,45 +531,37 @@
           <span class="tag">scikit-learn</span>
           <span class="tag">PostgreSQL</span>
           <span class="tag">Pandas</span>
-          <span class="tag">Shell Scripting</span>
-          <span class="tag">Grafana</span>
-          <span class="tag">Power BI</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal" style="grid-column: 1 / -1;">
-        <div class="project-year">2025 · Mobileum Technologies — Project Rescue</div>
-        <div class="project-name">RAID-TCG — End-to-End Operational Turnaround</div>
-        <p class="project-desc">
-          Took sole ownership of a critical enterprise product that had been stalled for 3 years with no operational support. Drove the project from near-abandoned to production-ready in under 8 months alongside the development team.<br/><br/>
-          Covered the full operational spectrum: logic analysis and fixing, new logic building, complex PostgreSQL query development, tenant onboarding, build upgrades, server maintenance, production monitoring, and deep issue resolution. Resolved 100+ production issues with full documentation at every step.<br/><br/>
-          Built customer-facing Grafana dashboards for real-time RAID flow monitoring across 14+ enterprise clients, reducing mean time-to-detect issues by 30%. Maintained ETL pipelines (Python, PySpark, PostgreSQL) at 99.9% uptime throughout.<br/><br/>
-          <strong>RAID-TCG goes fully live in production in 3 days.</strong>
-        </p>
-        <div class="project-stack">
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Python</span>
-          <span class="tag">PySpark</span>
-          <span class="tag">Shell Scripting</span>
-          <span class="tag">Grafana</span>
-          <span class="tag">ETL Pipelines</span>
-          <span class="tag">Apache Kafka</span>
-          <span class="tag">Server Ops</span>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-year">2024</div>
+        <div class="project-year">2024 · Featured AI Project</div>
         <div class="project-name">RAG-Based LLM Chatbot</div>
-        <p class="project-desc">End-to-end AI solution with data pre-processing, PEFT/LoRA model fine-tuning, RAG pipeline deployment on Azure, and response quality monitoring. Reproducible Git-versioned pipelines.</p>
+        <p class="project-desc">
+          End-to-end AI solution covering the full GenAI lifecycle: data pre-processing and chunking, embedding generation, vector retrieval, PEFT/LoRA fine-tuning of an open-source LLM, and RAG pipeline orchestration with LangChain and LlamaIndex. Deployed on Azure with response quality monitoring and reproducible, Git-versioned pipelines.
+        </p>
         <div class="project-stack">
           <span class="tag">LangChain</span>
           <span class="tag">LlamaIndex</span>
           <span class="tag">HuggingFace</span>
-          <span class="tag">TensorFlow</span>
+          <span class="tag">PEFT / LoRA</span>
           <span class="tag">Azure</span>
           <span class="tag">Python</span>
         </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-year">2026 · Personal Project</div>
+        <div class="project-name">BigQuery Release Pulse</div>
+        <p class="project-desc">Real-time release tracker that parses Google Cloud's BigQuery release notes feed, automatically categorizes updates (Features, Announcements, Issues, Deprecations), and supports live search, filtering, and one-click sharing. Async sync pulls fresh updates without a page reload.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">BeautifulSoup4</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+        <a href="https://github.com/Deepthinaidu24/Deepthi-event-talks-app" target="_blank" style="font-size:0.78rem;color:var(--accent);text-decoration:none;margin-top:0.8rem;display:inline-block;">View on GitHub →</a>
       </div>
 
       <div class="project-card reveal">
@@ -545,13 +576,28 @@
         </div>
       </div>
 
+      <div class="project-card reveal">
+        <div class="project-year">2025 · Mobileum Technologies — Project Rescue</div>
+        <div class="project-name">RAID-TCG — End-to-End Operational Turnaround</div>
+        <p class="project-desc">
+          Took sole ownership of a critical enterprise product stalled for 3 years, driving it to production-ready in under 8 months — full-stack ownership spanning logic building, PostgreSQL development, tenant onboarding, and ETL pipeline maintenance (Python, PySpark) at 99.9% uptime across 14+ enterprise clients.
+        </p>
+        <div class="project-stack">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">PySpark</span>
+          <span class="tag">Apache Kafka</span>
+          <span class="tag">Grafana</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="section-header reveal">
-      <span class="section-num">04</span>
+      <span class="section-num">[ verified ]</span>
       <h2 class="section-title">Certifications</h2>
       <div class="section-line"></div>
     </div>
@@ -605,7 +651,7 @@
   <section id="contact">
     <div class="contact-inner reveal">
       <h2 class="contact-heading">Let's work<br/><em>together.</em></h2>
-      <p class="contact-sub">Open to roles in <strong>Data Science</strong>, <strong>Data Engineering</strong> &amp; <strong>AI/ML Development</strong>. Currently based in Bengaluru — open to remote &amp; hybrid.</p>
+      <p class="contact-sub">Open to roles in <strong>AI Engineering</strong>, <strong>Data Science</strong> &amp; <strong>Quantitative Research</strong>. Currently based in Bengaluru — open to remote &amp; hybrid.</p>
       <div class="contact-links">
         <a href="mailto:deepthi241202@gmail.com" class="contact-link">
           <span class="contact-link-icon">✉️</span>
@@ -641,7 +687,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2025 Deepthi B. All rights reserved.</span>
+    <span>© 2026 Deepthi B. All rights reserved.</span>
     <span>Bengaluru, India 🇮🇳</span>
   </footer>
 
